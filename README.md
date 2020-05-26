@@ -9,7 +9,7 @@ A Single page React Application to computing simple interest using the api.
 2. Do the setup for front end \
    a. Fork the repo \
    b. npm install \
-   c. npm start
+   c. npm start \
    d. Access the application in http://localhost:3000
 
 ## Screenshots
