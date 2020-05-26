@@ -1,58 +1,47 @@
-import React from "react";
+import React,{useState} from "react";
 import "./App.css";
 
-class App extends React.Component {
+export default function App(props){
+  const [state,setState] = useState({
+        principal:'',
+         rate:'',
+         years:'',
+         interest:''
+     });
 
-constructor(props){
-  super(props);
-  this.state = {
-      principal:'',
-       rate:'',
-       years:'',
-       interest:''
-     
-  };
-
-  this.handleChangePrincipal = this.handleChangePrincipal.bind(this);
-  this.handleChangeYears = this.handleChangeYears.bind(this);
-  this.handleChangeRate = this.handleChangeRate.bind(this);
-  this.computeInterest = this.computeInterest.bind(this);
-  this.resetValues = this.resetValues.bind(this);
+function handleChangePrincipal(event){
+   setState((state) => ({...state,principal:event.target.value}));
 }
 
-handleChangePrincipal(event){
-   this.setState({principal: event.target.value});
+function handleChangeRate(event){
+  setState((state) => ({...state,rate:event.target.value}));
 }
 
-handleChangeRate(event){
-  this.setState({rate: event.target.value});
+function handleChangeYears(event){
+ setState((state) => ({...state,years:event.target.value}));
 }
 
-handleChangeYears(event){
-  this.setState({years: event.target.value});
-}
-
-computeInterest(event){
+function computeInterest(event){
   event.preventDefault();
   
   const requestOptions = {
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
     body: JSON.stringify({
-      principal: Number(this.state.principal),
-      rate: Number(this.state.rate),
-      years: Number(this.state.years)
+      principal: Number(state.principal),
+      rate: Number(state.rate),
+      years: Number(state.years)
     })
   };
  
    fetch("http://localhost:8090/interest/simpleInterest",requestOptions).then(res => res.json())
-   .then(data => this.setState({interest:data})).catch(err => err.message);
+   .then(data => setState((state) => ({...state,interest:data}))).catch(err => err.message);
   
 }
 
-resetValues(event){
+function resetValues(event){
   event.preventDefault();
-   this.setState({
+   setState({
     
       principal:'',
        rate:'',
@@ -63,7 +52,7 @@ resetValues(event){
    );
 }
 
-  render() {
+  
     return (
       <div className="App">
         
@@ -76,7 +65,7 @@ resetValues(event){
                   <label>Principal</label>
                 </td>
                 <td>
-                  <input type="text" value = {this.state.principal} onChange={this.handleChangePrincipal}/>{" "}
+                  <input type="text" value = {state.principal} onChange={handleChangePrincipal}/>{" "}
                 </td>
               </tr>
               <tr>
@@ -84,7 +73,7 @@ resetValues(event){
                   <label>Rate of Interest</label>
                 </td>
                 <td>
-                  <input type="text" value = {this.state.rate} onChange={this.handleChangeRate}/>
+                  <input type="text" value = {state.rate} onChange={handleChangeRate}/>
                 </td>
               </tr>
               <tr>
@@ -92,26 +81,26 @@ resetValues(event){
                   <label>Number of Years</label>
                 </td>
                 <td>
-                  <input type="text" value = {this.state.years} onChange={this.handleChangeYears}/>
+                  <input type="text" value = {state.years} onChange={handleChangeYears}/>
                 </td>
               </tr>
             </tbody>
           </table>
           <br />
           <div>
-          <button onClick={this.computeInterest}>Calculate</button> &nbsp; &nbsp;
-          <button onClick={this.resetValues}>Reset</button>
+          <button onClick={computeInterest}>Calculate</button> &nbsp; &nbsp;
+          <button onClick={resetValues}>Reset</button>
           </div>
         </form>
         <br/>
         <br/>
-      {this.state.interest && (  <div>
-         Computed Interest is {this.state.interest}
+      {state.interest && (  <div>
+         Computed Interest is {state.interest}
        </div>
       )}
       </div>
     );
-  }
-}
 
-export default App;
+
+
+};
