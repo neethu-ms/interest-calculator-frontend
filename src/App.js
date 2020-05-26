@@ -51,6 +51,7 @@ computeInterest(event){
 }
 
 resetValues(event){
+  event.preventDefault();
    this.setState({
     
       principal:'',
