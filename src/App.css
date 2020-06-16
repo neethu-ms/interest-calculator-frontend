@@ -19,9 +19,7 @@ table{
   border:2px solid black;
 }
 
-input{
-   height: 50px;   
-}
+
 
 label{
     font-size: 20px;
@@ -31,6 +29,7 @@ td{
   background-color:#99ddff;
   border:2px solid black;
   padding:10px;
+
 }
 
 body{
@@ -48,9 +47,17 @@ button{
 }
 
 input{
-	
+	height: 50px;  
 	font-weight:bold;
 	color:red;
-	border:3px solid #D3D3D3;
+  border:3px solid #D3D3D3;
+  font-size: 20px;
+  
 	
+}
+
+.interest{
+  font-weight:bold;
+  font-size:30px;
+  color:green;
 }
