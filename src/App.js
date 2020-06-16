@@ -106,7 +106,7 @@ resetValues(event){
         <br/>
         <br/>
       {this.state.interest && (  <div>
-         Computed Interest is {this.state.interest}
+         <p className="interest">Computed Interest is {this.state.interest} </p>
        </div>
       )}
       </div>
