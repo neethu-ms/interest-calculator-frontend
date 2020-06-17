@@ -1,63 +1,55 @@
-caption{
+caption {
   font-size: 30px;
 }
 
 .App {
   display: grid;
   place-items: center;
-  
 }
 
 form {
   display: grid;
   place-items: center;
-  
 }
 
-table{
-  text-align:center;
-  border:2px solid black;
+table {
+  text-align: center;
+  border: 2px solid black;
 }
 
-
-
-label{
-    font-size: 20px;
-}
-
-td{
-  background-color:#99ddff;
-  border:2px solid black;
-  padding:10px;
-
-}
-
-body{
-	background-color:#D3D3D3;
-	font-weight:bold;
-}
-
-
-button{
-	border:1px solid black;
-	font-weight:bold;
-	background-color:#00e600;
-	height: 40px;
-  
-}
-
-input{
-	height: 50px;  
-	font-weight:bold;
-	color:red;
-  border:3px solid #D3D3D3;
+label {
   font-size: 20px;
-  
-	
 }
 
-.interest{
-  font-weight:bold;
-  font-size:30px;
-  color:green;
+td {
+  background-color: #99ddff;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+body {
+  background-color: #d3d3d3;
+  font-weight: bold;
+}
+
+button {
+  border: 1px solid black;
+  font-weight: bold;
+  background-color: #00e600;
+  height: 40px;
+}
+
+input {
+  height: 50px;
+  font-weight: bold;
+  color: red;
+  border: 3px solid #d3d3d3;
+  font-size: 20px;
+  padding:10px;
+}
+
+.interest {
+  font-weight: bold;
+  font-size: 30px;
+  color: green;
 }
